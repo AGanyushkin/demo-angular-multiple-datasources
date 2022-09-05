@@ -1,0 +1,17 @@
+
+<div *ngIf="accounts$">
+
+  <div *ngFor="let account of accounts$ | async" style="padding-bottom: 13px;" >
+    <span [style.color]="account.status === 'ONLINE' ? 'GREEN' : 'RED'">{{account.status}}</span>
+    <span style="padding: 13px"></span>
+    <b>{{account.fullName}}</b> with id <span [style.color]="account.color">{{account.id}}</span>
+
+    <div style="padding-left: 30px" *ngIf="account.messages">
+      <div *ngFor="let message of account.messages"
+           style="font-size: 11px; padding: 7px; color: gray; width: 70%">
+        {{message.text}}
+      </div>
+    </div>
+  </div>
+
+</div>
